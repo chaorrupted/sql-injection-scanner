@@ -1,11 +1,13 @@
 <?php
-require "/home/chao/vendor/autoload.php";
 
+require "/home/chao/vendor/autoload.php";
 
 use PhpParser\Error;
 use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
+use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
+#will turn to file read in the future
 $code = <<<'CODE'
 <?php
 $con=mysqli_connect("localhost","my_user","my_password","my_db");
@@ -15,9 +17,9 @@ if (mysqli_connect_errno()) {
 }
 
 $firstname = mysqli_real_escape_string($con, $_POST['firstname']);
-$lastname = mysqli_real_escape_string($con, $_POST['lastname']);
+$lastname = mysqli_real_escape_string($con, strval($_POST['lastname']));
 
-$location = $_POST['location'];
+$location = strval($_POST['location']);
 
 $sql="INSERT INTO Persons (FirstName, LastName, Age)
 VALUES ('$firstname', '$lastname', '$age')";
@@ -39,9 +41,8 @@ try {
 }
 
 
-use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
-#------------------------------
+#-----------LINK-PARENTS-------------------
 class ParentConnector extends NodeVisitorAbstract {
     private $stack;
     public function beforeTraverse(array $nodes) {
@@ -57,9 +58,9 @@ class ParentConnector extends NodeVisitorAbstract {
         array_pop($this->stack);
     }
 }
-#------------------------------
 $pretraverser = new NodeTraverser;
 $pretraverser->addVisitor(new ParentConnector);
+#------------------------------
 
 
 $flag = 0;
@@ -98,6 +99,8 @@ function is_safe(Node $func_node){
         return 1;
     }
     else{
+	    echo "function call is not sanitizer function\n";
+	    echo "continue climb..\n";
         return 0;
     }
 }
@@ -106,7 +109,7 @@ $traverser = new NodeTraverser;
 $traverser->addVisitor(new class extends NodeVisitorAbstract {
 	
     public function enterNode(Node $node) {
-        if ($node instanceof Node\Expr\Variable && $node->name == "_POST") { //modify to scream
+        if ($node instanceof Node\Expr\Variable && $node->name == "_POST") {
 		
 		echo "found: '_POST' at line ".$node->getLine().", potential vulnerability\n";
 		if($node->hasAttribute('parent')){
@@ -116,7 +119,7 @@ $traverser->addVisitor(new class extends NodeVisitorAbstract {
 
 		    
 		    if(!climb_up($parent)){
-		        echo "VULNERABILITY: input without escape_string call at line ".$node->getLine()."\n";
+		        echo "VULNERABILITY: input from _POST without escape_string call at line ".$node->getLine()."\n";
 		    }
 		    echo "----------\n";
 		}
@@ -128,4 +131,4 @@ $traverser->addVisitor(new class extends NodeVisitorAbstract {
 });
 
 $ast = $pretraverser->traverse($ast);
-$modifiedStmts = $traverser->traverse($ast);
+$traverser->traverse($ast);
