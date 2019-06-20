@@ -17,7 +17,7 @@ if(! isset($argv[1])){
 else{
     $filename = $argv[1];
     echo "reading: "."./$filename"."\n";
-    $code = file_get_contents("./$filename");
+    $code = file_get_contents("$filename");
     if($code == FALSE){
         echo "failed to read file.\n";
     }
