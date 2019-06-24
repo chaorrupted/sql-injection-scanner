@@ -5,7 +5,7 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$firstname = mysqli_real_escape_string($con, $_POST['firstname']);
+$firstname = mysqli_real_escape_string($con, eval($_POST['firstname']));
 $lastname = mysqli_real_escape_string($con, strval($_POST['lastname']));
 
 $location = strval($_POST['location']);

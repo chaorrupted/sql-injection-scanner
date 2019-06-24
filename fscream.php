@@ -7,8 +7,6 @@ use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
-#will turn to file read in the future
-#
 
 #turn to multiple file or automate with python
 if(! isset($argv[1])){
@@ -22,6 +20,8 @@ else{
         echo "failed to read file.\n";
     }
 }
+
+
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
 try {
     $ast = $parser->parse($code);
@@ -51,6 +51,11 @@ class ParentConnector extends NodeVisitorAbstract {
 $pretraverser = new NodeTraverser;
 $pretraverser->addVisitor(new ParentConnector);
 #------------------------------
+
+
+$tainted = [];
+$clear = [];
+
 
 
 $flag = 0;
