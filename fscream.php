@@ -2,11 +2,11 @@
 
 require "/home/chao/vendor/autoload.php";
 
+
 use PhpParser\Error;
 use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
-
 
 #turn to multiple file or automate with python
 if(! isset($argv[1])){
@@ -65,6 +65,10 @@ function climb_up(Node $node){
 	    echo "short-circuiting climb...\n";
 	    $flag = 0;
 	    return true;
+	}elseif ($flag == -1){
+		echo "found.\n";
+		$flag = 0;
+		return false;
 	}
         if($node->hasAttribute('parent')){
             $parent = $node->getAttribute('parent');
@@ -81,22 +85,27 @@ function climb_up(Node $node){
 	else{
 	    $node_type = $node->getType();
 	    echo "node ".$node_type." does not have a parent\n";
+	    #TAINTED variable: add to global list
 	    return false;
 	}
 }
 
 function is_safe(Node $func_node){
-    echo "inspecting ".$func_node->getType()." for mysqli_real_escape_string...\n";
+    include '/home/chao/sql-injection-scanner/SSS.php';
+    echo "checking if ".$func_node->getType()." is in sanitizers list...\n";
     $fname = $func_node->name;
     echo "NAME : ".$fname."\n";
-    if($fname == "mysqli_real_escape_string"){
-        echo "input is sanitized.\n";
+    if (in_array($fname, $sanitizers)){
+        echo "function is in sanitizers list. input is sanitized.\n";
         return 1;
     }
-    else{
+    elseif (in_array($fname, $sinks)){
+    	 echo "function is a sink! vulnerability ";
+         return -1;
+    }else{
 	    echo "function call is not sanitizer function\n";
 	    echo "continue climb..\n";
-        return 0;
+       return 0;
     }
 }
 
@@ -104,24 +113,24 @@ $traverser = new NodeTraverser;
 $traverser->addVisitor(new class extends NodeVisitorAbstract {
 	
     public function enterNode(Node $node) {
-        if ($node instanceof Node\Expr\Variable && $node->name == "_POST") {
+	include "/home/chao/sql-injection-scanner/SSS.php";
+
+
+        if ($node instanceof Node\Expr\Variable && in_array("$".$node->name, $sources)) {
 		
-		echo "found: '_POST' at line ".$node->getLine().", potential vulnerability\n";
+		echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
 		if($node->hasAttribute('parent')){
 		    $parent = $node->getAttribute('parent');
 		    $parent_type = $parent->getType();
-		    echo "post node has parent node with type: '$parent_type'\n";
+		    echo $node->name." node has parent node with type: '$parent_type'\n";
 
 		    
-		    if(!climb_up($parent)){
+		    if (!climb_up($parent)){
 		        echo "VULNERABILITY: input from _POST without escape_string call at line ".$node->getLine()."\n";
 		    }
 		    echo "----------\n";
 		}
 	}
-	#elseif ($node instanceof Node\Expr\Variable && $node->name == "_GET"){
-	#    echo "found: get node, potential vulnerability\n";
-	#}
     }
 });
 

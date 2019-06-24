@@ -131,4 +131,8 @@ $traverser->addVisitor(new class extends NodeVisitorAbstract {
 });
 
 $ast = $pretraverser->traverse($ast);
-$traverser->traverse($ast);
+$stmt = $traverser->traverse($ast);
+
+
+$dumper = new NodeDumper;
+echo $dumper->dump($stmt) . "\n";

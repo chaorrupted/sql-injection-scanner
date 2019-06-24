@@ -1,0 +1,1482 @@
+reading: sample_code.php
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+conArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_connectArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_connect_errnoArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_connect_errorArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+firstnameArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_real_escape_stringArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+conArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+_POSTfound source: _POST at line 8, potential vulnerability
+_POST node has parent node with type: 'Expr_ArrayDimFetch'
+Expr_ArrayDimFetch node has parent node with type: 'Expr_Eval'
+Expr_Eval node has parent node with type: 'Arg'
+Arg node has parent node with type: 'Expr_FuncCall'
+Expr_FuncCall node has parent node with type: 'Expr_Assign'
+caught function node. checking if Expr_FuncCall is in sanitizers list...
+NAME : mysqli_real_escape_string
+input is sanitized.
+short-circuiting climb...
+----------
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+lastnameArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_real_escape_stringArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+conArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+strvalArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+_POSTfound source: _POST at line 9, potential vulnerability
+_POST node has parent node with type: 'Expr_ArrayDimFetch'
+Expr_ArrayDimFetch node has parent node with type: 'Arg'
+Arg node has parent node with type: 'Expr_FuncCall'
+Expr_FuncCall node has parent node with type: 'Arg'
+caught function node. checking if Expr_FuncCall is in sanitizers list...
+NAME : strval
+function call is not sanitizer function
+continue climb..
+Arg node has parent node with type: 'Expr_FuncCall'
+Expr_FuncCall node has parent node with type: 'Expr_Assign'
+caught function node. checking if Expr_FuncCall is in sanitizers list...
+NAME : mysqli_real_escape_string
+input is sanitized.
+short-circuiting climb...
+----------
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+locationArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+strvalArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+_POSTfound source: _POST at line 11, potential vulnerability
+_POST node has parent node with type: 'Expr_ArrayDimFetch'
+Expr_ArrayDimFetch node has parent node with type: 'Arg'
+Arg node has parent node with type: 'Expr_FuncCall'
+Expr_FuncCall node has parent node with type: 'Expr_Assign'
+caught function node. checking if Expr_FuncCall is in sanitizers list...
+NAME : strval
+function call is not sanitizer function
+continue climb..
+Expr_Assign node has parent node with type: 'Stmt_Expression'
+node Stmt_Expression does not have a parent
+VULNERABILITY: input from _POST without escape_string call at line 11
+----------
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+sqlArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+firstnameArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+lastnameArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+ageArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_queryArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+conArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+sqlArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_errorArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+conArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+mysqli_closeArray
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+Array
+(
+    [0] => $_GET
+    [1] => $_POST
+    [2] => $_COOKIE
+    [3] => $_REQUEST
+    [4] => $_FILES
+    [5] => $_SERVER
+    [6] => $HTTP_GET_VARS
+    [7] => $HTTP_POST_VARS
+    [8] => $HTTP_COOKIE_VARS
+    [9] => $HTTP_REQUEST_VARS
+    [10] => $HTTP_POST_FILES
+    [11] => $HTTP_SERVER_VARS
+    [12] => $HTTP_RAW_POST_DATA
+)
+con
