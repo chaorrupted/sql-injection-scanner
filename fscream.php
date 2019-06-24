@@ -126,7 +126,7 @@ $traverser->addVisitor(new class extends NodeVisitorAbstract {
 
 		    
 		    if (!climb_up($parent)){
-		        echo "VULNERABILITY: input from _POST without escape_string call at line ".$node->getLine()."\n";
+		        echo "VULNERABILITY: input from _POST without sanitization call at line ".$node->getLine()."\n";
 		    }
 		    echo "----------\n";
 		}
