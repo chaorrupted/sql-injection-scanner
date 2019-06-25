@@ -2,63 +2,16 @@
 
 require "/home/chao/vendor/autoload.php";
 
-
 use PhpParser\Error;
 use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
-#turn to multiple file or automate with python
-if(! isset($argv[1])){
-    exit("no file specified. halt execution\n");
-}
-else{
-    $filename = $argv[1];
-    echo "reading: "."$filename"."\n";
-    $code = file_get_contents("$filename");
-    if($code == FALSE){
-        echo "failed to read file.\n";
-    }
-}
-
-
-$parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
-try {
-    $ast = $parser->parse($code);
-} catch (Error $error) {
-    echo "Parse error: {$error->getMessage()}\n";
-    return;
-}
-
-
-
-#-----------LINK-PARENTS-------------------
-class ParentConnector extends NodeVisitorAbstract {
-    private $stack;
-    public function beforeTraverse(array $nodes) {
-        $this->stack = [];
-    }
-    public function enterNode(Node $node) {
-        if (!empty($this->stack)) {
-            $node->setAttribute('parent', $this->stack[count($this->stack)-1]);
-        }
-        $this->stack[] = $node;
-    }
-    public function leaveNode(Node $node) {
-        array_pop($this->stack);
-    }
-}
-$pretraverser = new NodeTraverser;
-$pretraverser->addVisitor(new ParentConnector);
-#------------------------------
-
-
+#maybe add these to _globals
 $tainted = [];
 $clear = [];
-
-
-
 $flag = 0;
+
 function climb_up(Node $node){
 	global $flag;
 	if ($flag == 1){
@@ -109,8 +62,24 @@ function is_safe(Node $func_node){
     }
 }
 
-$traverser = new NodeTraverser;
-$traverser->addVisitor(new class extends NodeVisitorAbstract {
+#-----------LINK-PARENTS-------------------
+class ParentConnector extends NodeVisitorAbstract {
+    private $stack;
+    public function beforeTraverse(array $nodes) {
+        $this->stack = [];
+    }
+    public function enterNode(Node $node) {
+        if (!empty($this->stack)) {
+            $node->setAttribute('parent', $this->stack[count($this->stack)-1]);
+        }
+        $this->stack[] = $node;
+    }
+    public function leaveNode(Node $node) {
+        array_pop($this->stack);
+    }
+}
+
+class Screamer extends NodeVisitorAbstract {
 	
     public function enterNode(Node $node) {
 	include "/home/chao/sql-injection-scanner/SSS.php";
@@ -126,13 +95,51 @@ $traverser->addVisitor(new class extends NodeVisitorAbstract {
 
 		    
 		    if (!climb_up($parent)){
-		        echo "VULNERABILITY: input from _POST without sanitization call at line ".$node->getLine()."\n";
+		        echo "VULNERABILITY: input from ".$node->name." without sanitization call at line ".$node->getLine()."\n";
 		    }
 		    echo "----------\n";
 		}
 	}
     }
-});
+}
 
-$ast = $pretraverser->traverse($ast);
-$traverser->traverse($ast);
+$parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+
+$traverser = new NodeTraverser;
+$traverser->addVisitor(new Screamer);
+
+$pretraverser = new NodeTraverser;
+$pretraverser->addVisitor(new ParentConnector);
+
+
+
+if (!isset($argv[1])){
+    exit("no file specified. halt execution\n");
+}
+else{
+    $iterator = new FilesystemIterator($argv[1]); #needs to be tested in nested directories
+    while($iterator->valid()) {
+        #echo $iterator->getFilename() . "\n"; 
+
+        $filename = $iterator->getFilename();
+        echo "reading: "."$filename"."\n";
+        $code = file_get_contents("$filename");
+        if($code == FALSE){
+            echo "failed to read file.\n";
+        }
+
+        try {
+            $ast = $parser->parse($code);
+        } catch (Error $error) {
+            echo "Parse error: {$error->getMessage()}\n";
+            return;
+        }
+
+        $ast = $pretraverser->traverse($ast);
+        $traverser->traverse($ast);
+
+        $iterator->next(); #remember to (maybe) reset clear and tainted lists
+    }
+}
+
+
