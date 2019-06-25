@@ -118,7 +118,7 @@ if (!isset($argv[1])){
 }
 else{
     $iterator = new FilesystemIterator($argv[1]); #needs to be tested in nested directories
-    while($iterator->valid()) {
+    while($iterator->valid()) {                   #perhaps modify so it can take file or directory as input
         #echo $iterator->getFilename() . "\n"; 
 
         $filename = $iterator->getFilename();
