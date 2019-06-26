@@ -6,3 +6,6 @@
 
 -automate on multiple files (or even directories?)
     --done
+	make --skip-hidden a parameter that is true by default
+
+-color and beautify output
