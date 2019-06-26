@@ -5,4 +5,4 @@
 -check for tainted and clear variables in global scope - across blocks
 
 -automate on multiple files (or even directories?)
-
+    --done

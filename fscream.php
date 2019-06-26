@@ -62,7 +62,6 @@ function is_safe(Node $func_node){
     }
 }
 
-#-----------LINK-PARENTS-------------------
 class ParentConnector extends NodeVisitorAbstract {
     private $stack;
     public function beforeTraverse(array $nodes) {
@@ -84,7 +83,6 @@ class Screamer extends NodeVisitorAbstract {
     public function enterNode(Node $node) {
 	include "/home/chao/sql-injection-scanner/SSS.php";
 
-
         if ($node instanceof Node\Expr\Variable && in_array("$".$node->name, $sources)) {
 		
 		echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
@@ -92,8 +90,7 @@ class Screamer extends NodeVisitorAbstract {
 		    $parent = $node->getAttribute('parent');
 		    $parent_type = $parent->getType();
 		    echo $node->name." node has parent node with type: '$parent_type'\n";
-
-		    
+	    
 		    if (!climb_up($parent)){
 		        echo "VULNERABILITY: input from ".$node->name." without sanitization call at line ".$node->getLine()."\n";
 		    }
@@ -114,16 +111,34 @@ $pretraverser->addVisitor(new ParentConnector);
 
 
 if (!isset($argv[1])){
-    exit("no file specified. halt execution\n");
+    exit("no target specified. halt execution\n");
 }
 else{
-    $iterator = new FilesystemIterator($argv[1]); #needs to be tested in nested directories
-    while($iterator->valid()) {                   #perhaps modify so it can take file or directory as input
-        #echo $iterator->getFilename() . "\n"; 
 
-        $filename = $iterator->getFilename();
-        echo "reading: "."$filename"."\n";
-        $code = file_get_contents("$filename");
+
+    $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($argv[1]));
+
+    $files = array(); 
+
+    foreach ($rii as $file) {
+
+        if ($file->isDir()){ 
+            continue;
+        }
+
+        $files[] = $file->getPathname(); 
+
+    }
+
+    foreach($files as $file) {
+
+	if (strpos($file, "/.")){
+	    #echo "skipping ".$file."\n";
+	    continue;
+	}
+
+	echo "reading: ".$file."\n";
+        $code = file_get_contents($file);
         if($code == FALSE){
             echo "failed to read file.\n";
         }
@@ -138,7 +153,6 @@ else{
         $ast = $pretraverser->traverse($ast);
         $traverser->traverse($ast);
 
-        $iterator->next(); #remember to (maybe) reset clear and tainted lists
     }
 }
 
