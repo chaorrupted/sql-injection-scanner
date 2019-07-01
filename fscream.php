@@ -7,6 +7,8 @@ use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
+#tt
+include "./snail.php";
 #TESTING PUSH
 
 #maybe add these to _globals
@@ -105,7 +107,8 @@ class Screamer extends NodeVisitorAbstract {
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
 
 $traverser = new NodeTraverser;
-$traverser->addVisitor(new Screamer);
+#$traverser->addVisitor(new Screamer);
+$traverser->addVisitor(new Snail);
 
 $pretraverser = new NodeTraverser;
 $pretraverser->addVisitor(new ParentConnector);
