@@ -14,9 +14,7 @@ use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 $tainted;
 $root;
 function is_tainted(Node $node){
-    #traverse given tree using Screamer from fscream
-    #somehow return tainted or safe ??
-
+    
     global $root;
     global $tainted;
 

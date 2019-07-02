@@ -9,9 +9,7 @@ use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
 require_once "./snail.php";
 
-#make these into sets
 $flag = 0;
-
 function climb_up(Node $node){
     global $flag;
     global $tainted;
@@ -22,11 +20,7 @@ function climb_up(Node $node){
         $flag = 0;
         return true;
     }
-#    elseif ($flag == -1){
-#        echo "found.\n";
-#        $flag = 0;
-#        return false;
-#    }
+
     if($node->hasAttribute('parent') && $node !== $root){
         $parent = $node->getAttribute('parent');
         $parent_type = $parent->getType();
@@ -54,18 +48,15 @@ function climb_up(Node $node){
 
 function is_safe(Node $func_node){
     include '/home/chao/sql-injection-scanner/SSS.php';
+    
     echo "checking if ".$func_node->getType()." is in sanitizers list...\n";
     $fname = $func_node->name;
     echo "NAME : ".$fname."\n";
+    
     if (in_array($fname, $sanitizers)){
         echo "function is in sanitizers list. input is (probably) sanitized.\n";
         return 1;
-    }
-   # elseif (in_array($fname, $sinks)){
-    #     echo "function is a sink! vulnerability ";
-     #    return -1;
-      # }
-     else{
+    }else{
         echo "function call is not sanitizer function\n";
         echo "continue climb..\n";
        return 0;
@@ -95,21 +86,16 @@ class Screamer extends NodeVisitorAbstract {
         global $DIRTY;
         global $CLEAR;
 
-        if ($node instanceof Node\Expr\Variable && in_array('$'.$node->name, $sources)) { #not source but known dirty case
-        
+        if ($node instanceof Node\Expr\Variable && in_array('$'.$node->name, $sources)) {            
             echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
-           #if($node->hasAttribute('parent')){
-           #    $parent = $node->getAttribute('parent');
-           #    $parent_type = $parent->getType();
-           #    echo $node->name." node has parent node with type: '$parent_type'\n";
-           #}
-       
             if (!climb_up($node)){
-                echo "VULNERABILITY: input from ".$node->name." without sanitization call at line ".$node->getLine()."\n";
+                echo "Input from ".$node->name." without sanitization at line ".$node->getLine()."\n";
             }
-                #that if used to be here
         }elseif ($node instanceof Node\Expr\Variable && $DIRTY->contains($node->name)) {
             echo "found a tainted variable on line ".$node->getLine()."\n";
+            if (!climb_up($node)){
+                echo "VLN: tainted variable persists and infects\n";
+            }
         }
     }
 }
