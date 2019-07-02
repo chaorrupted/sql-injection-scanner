@@ -8,16 +8,17 @@ require "/home/chao/vendor/autoload.php";
 $code = <<<'CODE'
 <?php
 
-class SimpleClass{
-    public $var = 'a default value';
-
-    public function displayVar() {
-        echo $this->var;
-    }
+function clean(string $i){
+    $i = $i."efasrgdthfyht";
+    return mysql_escape_string($i);
 }
 
-$cla = new SimpleClass();
-$usr = $cla->displayVar();
+
+$usr = $_GET['username'];
+
+$usr = clean($usr);
+
+
 
 
 CODE;

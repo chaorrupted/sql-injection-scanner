@@ -11,6 +11,10 @@ use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 $CLEAR = new \Ds\Set();
 $DIRTY = new \Ds\Set();
 
+$CLASSES = [];
+$FUNCTIONS = [];
+$INSTANCES = [];
+#$METHODS = [];
 
 class Snail extends NodeVisitorAbstract {
     
@@ -19,12 +23,22 @@ class Snail extends NodeVisitorAbstract {
         
         global $CLEAR;
         global $DIRTY;
-        
+        global $INSTANCES;
+
+#        if ($node instanceof Node\Expr\Assign && $node->expr instanceof Node\Expr\New_){
+#            echo "found assingment with call to 'new' on line :".$node->getLine()."\n";
+#            echo $node->var->name." is an instance of ".$node->expr->class."\n";
+#
+#            $INSTANCES[$node->var->name] = $node->expr->class->parts[0];
+#
+#        }else
+            
         if ($node instanceof Node\Expr\Assign){
 
 
             echo 'found an assignment at line '.$node->getLine()."\n";
             echo 'var is: '.$node->var->name."\n";
+
             echo 'calling is_tainted on: '.$node->expr->getType()."\n";
             
             $vname = $node->var->name;
@@ -35,27 +49,27 @@ class Snail extends NodeVisitorAbstract {
                 
                 if ($CLEAR->contains($vname)){
                     $CLEAR->remove($vname);
-                    echo "removed $vname from clear\n";
+                    echo "removed $vname from clear\n\n";
                 }
                 if (!$DIRTY->contains($vname)){
                     $DIRTY->add($vname);
-                    echo "added $vname to dirty\n";
+                    echo "added $vname to dirty\n\n";
                 }
 
             }else{
                 
                 if ($DIRTY->contains($vname)){
                     $DIRTY->remove($vname);
-                    echo "removed $vname from dirty\n";
+                    echo "removed $vname from dirty\n\n";
 	            echo "\n";
                 }
                 if (!$CLEAR->contains($vname)){
                     $CLEAR->add($vname);
-                    echo "added $vname to clear\n";
+                    echo "added $vname to clear\n\n";
 	            echo "\n";
                 }
             }
-        } elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
+        }elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
 
             echo "SINK FUNCTION CALL:\n"."NAME: $node->name \n"."LINE: ".$node->getLine()."\n";
             $i = 0;
@@ -74,7 +88,7 @@ class Snail extends NodeVisitorAbstract {
                 echo "ALERT: tainted input given to sink function(".$node->name.") on line ".$node->getLine()."!\n";
                 echo "------------------------------------------\n";
             }
-        }
+        } #elseif ($node instanceof Node\Expr\FuncCall && is user defind)
     }
 }
 
@@ -99,15 +113,26 @@ class Screamer extends NodeVisitorAbstract {
     }
 }
 
-class Librarian extends NodeVisitorAbstract {
+class Librarian extends NodeVisitorAbstract { #Pretty critical BUG: same variable name used in different scopes gets mixed up
     
     public function enterNode(Node $node){
-        echo "node type is : ".$node->getType()."\n";
-        if ($node instanceof Node\Stmt\Class_){
-            echo "################################################################################\n";
+        global $CLASSES;
+        global $FUNCTIONS;
+
+        if ($node instanceof Node\Stmt\Class_){#methods reqrd
+            echo "\n################################################################################\n";
             echo "found a class declaration on line ".$node->getLine()." with name ".$node->name."\n";
-            echo "################################################################################\n";
+            echo "################################################################################\n\n";
+
+            $CLASSES[($node->name->name)] = $node;
+        }elseif ($node instanceof Node\Stmt\Function_){
+            echo "\n################################################################################\n";
+            echo "found a function declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            echo "################################################################################\n\n";
+
+            $FUNCTIONS[$node->name->name] = $node;
         }
+
     }
 }
 
@@ -263,6 +288,13 @@ else{
         $classfinder->traverse($ast);
         $traverser->traverse($ast);
 
+        $dumper = new NodeDumper;
+        foreach ($FUNCTIONS as $name => $tree){
+            echo "\ntree for ".$name." looks like this:\n";
+            echo $dumper->dump($tree)."\n";
+        }
+       
+       # print_r($FUNCTIONS);
     }
 }
 

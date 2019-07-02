@@ -1,23 +1,20 @@
 <?php
 
-$another = ($con=mysqli_connect("localhost","my_user","my_password","my_db"));
-
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+function clean(string $i){
+    $i = $i."qsadfrwed";
+    return mysql_escape_string($i);
 }
 
-$firstname = mysqli_real_escape_string($con, mysqli_query($_POST['firstname']));
-$lastname = mysqli_real_escape_string($con, strval($_GET['lastname']));
 
-$location = strval($_POST['location']);
+$usr = $_GET['username'];
 
-$sql="INSERT INTO Persons (FirstName, LastName, Age)
-VALUES ('$firstname', '$lastname', '$age')";
-
-if (!mysqli_query($con,$sql)) {
-  die('Error: ' . mysqli_error($con));
-}
-echo "1 record added";
-
-mysqli_close($con);
-
+$usr = clean($usr);
+#          X
+#
+# $usr = $usr."qsadfrwed";
+# X = mysql_escape_string($usr)
+#     >
+#  $usr = X 
+#
+#
+#
