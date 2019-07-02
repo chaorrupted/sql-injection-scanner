@@ -7,44 +7,49 @@ use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 use PhpParser\{Node, NodeTraverser, NodeVisitorAbstract};
 
-#tt
-include "./snail.php";
-#TESTING PUSH
+require_once "./snail.php";
 
-#maybe add these to _globals
-$tainted = [];
-$clear = [];
+#make these into sets
 $flag = 0;
 
 function climb_up(Node $node){
-	global $flag;
-	if ($flag == 1){
-	    echo "short-circuiting climb...\n";
-	    $flag = 0;
-	    return true;
-	}elseif ($flag == -1){
-		echo "found.\n";
-		$flag = 0;
-		return false;
-	}
-        if($node->hasAttribute('parent')){
-            $parent = $node->getAttribute('parent');
-	    $parent_type = $parent->getType();
-	    $node_type = $node->getType();
-	    echo $node_type." node has parent node with type: '$parent_type'\n";
+    global $flag;
+    global $tainted;
+    global $root;
 
-	    if($node_type == 'Expr_FuncCall'){
-	    	echo "caught function node. ";
-		$flag = is_safe($node);
-	    }
-	    return climb_up($parent);
-	}
-	else{
-	    $node_type = $node->getType();
-	    echo "node ".$node_type." does not have a parent\n";
-	    #TAINTED variable: add to global list
-	    return false;
-	}
+    if ($flag == 1){
+        echo "short-circuiting climb...\n";
+        $flag = 0;
+        return true;
+    }
+#    elseif ($flag == -1){
+#        echo "found.\n";
+#        $flag = 0;
+#        return false;
+#    }
+    if($node->hasAttribute('parent') && $node !== $root){
+        $parent = $node->getAttribute('parent');
+        $parent_type = $parent->getType();
+        $node_type = $node->getType();
+        echo $node_type." node has parent node with type: '$parent_type'\n";
+
+        if($node_type == 'Expr_FuncCall'){
+            echo "caught function node. ";
+            $flag = is_safe($node);
+        }
+        return climb_up($parent);
+    
+    }elseif ($node === $root ){
+        echo "reached root, stopping climb \n";
+        $tainted = true;
+        return false;
+    }else{
+        $node_type = $node->getType();
+        echo "node ".$node_type." does not have a parent\n";
+        #TAINTED variable: add to global list
+        $tainted = true;
+        return false;
+    }
 }
 
 function is_safe(Node $func_node){
@@ -53,15 +58,16 @@ function is_safe(Node $func_node){
     $fname = $func_node->name;
     echo "NAME : ".$fname."\n";
     if (in_array($fname, $sanitizers)){
-        echo "function is in sanitizers list. input is sanitized.\n";
+        echo "function is in sanitizers list. input is (probably) sanitized.\n";
         return 1;
     }
-    elseif (in_array($fname, $sinks)){
-    	 echo "function is a sink! vulnerability ";
-         return -1;
-    }else{
-	    echo "function call is not sanitizer function\n";
-	    echo "continue climb..\n";
+   # elseif (in_array($fname, $sinks)){
+    #     echo "function is a sink! vulnerability ";
+     #    return -1;
+      # }
+     else{
+        echo "function call is not sanitizer function\n";
+        echo "continue climb..\n";
        return 0;
     }
 }
@@ -83,24 +89,28 @@ class ParentConnector extends NodeVisitorAbstract {
 }
 
 class Screamer extends NodeVisitorAbstract {
-	
+    
     public function enterNode(Node $node) {
-	include "/home/chao/sql-injection-scanner/SSS.php";
+        include "/home/chao/sql-injection-scanner/SSS.php";
+        global $DIRTY;
+        global $CLEAR;
 
-        if ($node instanceof Node\Expr\Variable && in_array("$".$node->name, $sources)) {
-		
-		echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
-		if($node->hasAttribute('parent')){
-		    $parent = $node->getAttribute('parent');
-		    $parent_type = $parent->getType();
-		    echo $node->name." node has parent node with type: '$parent_type'\n";
-	    
-		    if (!climb_up($parent)){
-		        echo "VULNERABILITY: input from ".$node->name." without sanitization call at line ".$node->getLine()."\n";
-		    }
-		    echo "----------\n";
-		}
-	}
+        if ($node instanceof Node\Expr\Variable && in_array('$'.$node->name, $sources)) { #not source but known dirty case
+        
+            echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
+           #if($node->hasAttribute('parent')){
+           #    $parent = $node->getAttribute('parent');
+           #    $parent_type = $parent->getType();
+           #    echo $node->name." node has parent node with type: '$parent_type'\n";
+           #}
+       
+            if (!climb_up($node)){
+                echo "VULNERABILITY: input from ".$node->name." without sanitization call at line ".$node->getLine()."\n";
+            }
+                #that if used to be here
+        }elseif ($node instanceof Node\Expr\Variable && $DIRTY->contains($node->name)) {
+            echo "found a tainted variable on line ".$node->getLine()."\n";
+        }
     }
 }
 
@@ -137,12 +147,12 @@ else{
 
     foreach($files as $file) {
 
-	if (strpos($file, "/.")){
-	    #echo "skipping ".$file."\n";
-	    continue;
-	}
+        if (strpos($file, "/.")){
+            #echo "skipping ".$file."\n";
+            continue;
+        }
 
-	echo "reading: ".$file."\n";
+        echo "reading: ".$file."\n";
         $code = file_get_contents($file);
         if($code == FALSE){
             echo "failed to read file.\n";

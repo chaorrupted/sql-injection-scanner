@@ -12,8 +12,7 @@ if( isset( $_POST[ 'Login' ] ) ) {
 	checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'login.php' );
 
 	$user = $_POST[ 'username' ];
-	$user = stripslashes( $user );
-	$user = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $user ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+    $user = $user;
 
 	$pass = $_POST[ 'password' ];
 	$pass = stripslashes( $pass );
