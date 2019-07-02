@@ -1,0 +1,3 @@
+<?php
+
+$mckenzie = "somestinrg";

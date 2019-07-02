@@ -29,80 +29,115 @@ class Snail extends NodeVisitorAbstract {
 
 
         if ($node instanceof Node\Stmt\Class_){#methods reqrd
-            echo "\nskipping over class decleration\n";
-            echo "on line ".$node->getLine()." with name ".$node->name."\n";
+            #echo "\nskipping over class decleration\n";
+            #echo "on line ".$node->getLine()." with name ".$node->name."\n";
 
             return NodeTraverser::DONT_TRAVERSE_CHILDREN;
         }elseif ($node instanceof Node\Stmt\Function_){
-            echo "\nskipping over a function decleration\n";
-            echo "on line ".$node->getLine()." with name ".$node->name."\n";
+            #echo "\nskipping over a function decleration\n";
+            #echo "on line ".$node->getLine()." with name ".$node->name."\n";
 
             return NodeTraverser::DONT_TRAVERSE_CHILDREN;
         }elseif ($node instanceof Node\Expr\Assign && $node->expr instanceof Node\Expr\New_){
-            echo "found assingment with call to 'new' on line :".$node->getLine()."\n";
-            echo $node->var->name." is an instance of ".$node->expr->class."\n";
+            #echo "\nfound assingment with call to 'new' on line :".$node->getLine()."\n";
+            #echo $node->var->name." is an instance of ".$node->expr->class."\n\n";
 
             $INSTANCES[$node->var->name] = $node->expr->class->parts[0];
 
-        }elseif ($node instanceof Node\Expr\Assign){
-
-
-            echo 'found an assignment at line '.$node->getLine()."\n";
-            echo 'var is: '.$node->var->name."\n";
-
-            echo 'calling is_tainted on: '.$node->expr->getType()."\n";
+        }elseif ($node instanceof Node\Expr\Assign && $node->var instanceof Node\Expr\ArrayDimFetch){
+            #echo "found an array FETCH on line".$node->getLine()."\n";
+            #echo "array name is: ".$node->var->var->name."\n";
+            #echo 'calling is_tainted on: '.$node->expr->getType()."\n";
             
-            $vname = $node->var->name;
+            $vname = $node->var->var->name;
 
-            # BUG: left side of assingment must be inspected for arrays 
 
             if (is_tainted($node->expr)){
                 
                 if ($CLEAR->contains($vname)){
                     $CLEAR->remove($vname);
-                    echo "removed $vname from clear\n\n";
+                    #echo "removed $vname from clear\n\n";
                 }
                 if (!$DIRTY->contains($vname)){
                     $DIRTY->add($vname);
-                    echo "added $vname to dirty\n\n";
+                    #echo "added $vname to dirty\n\n";
                 }
 
             }else{
                 
                 if ($DIRTY->contains($vname)){
                     $DIRTY->remove($vname);
-                    echo "removed $vname from dirty\n\n";
+                    #echo "removed $vname from dirty\n\n";
                 }
                 if (!$CLEAR->contains($vname)){
                     $CLEAR->add($vname);
-                    echo "added $vname to clear\n\n";
+                    #echo "added $vname to clear\n\n";
+                }
+            return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+            }
+    
+
+        }elseif ($node instanceof Node\Expr\Assign){
+
+
+            #echo 'found an assignment at line '.$node->getLine()."\n";
+            #echo 'var is: '.$node->var->name."\n";
+
+            #echo 'calling is_tainted on: '.$node->expr->getType()."\n";
+            
+            $vname = $node->var->name;
+
+
+            if (is_tainted($node->expr)){
+                
+                if ($CLEAR->contains($vname)){
+                    $CLEAR->remove($vname);
+                    #echo "removed $vname from clear\n\n";
+                }
+                if (!$DIRTY->contains($vname)){
+                    $DIRTY->add($vname);
+                    #echo "added $vname to dirty\n\n";
+                }
+
+            }else{
+                
+                if ($DIRTY->contains($vname)){
+                    $DIRTY->remove($vname);
+                    #echo "removed $vname from dirty\n\n";
+                }
+                if (!$CLEAR->contains($vname)){
+                    $CLEAR->add($vname);
+                    #echo "added $vname to clear\n\n";
                 }
             return NodeTraverser::DONT_TRAVERSE_CHILDREN;
             }
         }elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
 
-            echo "SINK FUNCTION CALL:\n"."NAME: $node->name \n"."LINE: ".$node->getLine()."\n";
+            #echo "SINK FUNCTION CALL:\n"."NAME: $node->name \n"."LINE: ".$node->getLine()."\n";
             $i = 0;
             $i_t = 0;
             foreach ($node->args as $ar){
                 $t = is_tainted($ar);
-                $x = $t ? "tainted" : "safe";
-                echo "arg #$i : ".$x."\n";
+                #$x = $t ? "tainted" : "safe";
+                #echo "arg #$i : ".$x."\n";
                 if ($t) { $i_t++; }
                 $i++;
             }
-            echo "$i_t of total $i arguments are tainted.\n";
+            #echo "$i_t of total $i arguments are tainted.\n";
 
             if ($i_t) {
-                echo "------------------------------------------\n";
-                echo "ALERT: tainted input given to sink function(".$node->name.") on line ".$node->getLine()."!\n";
-                echo "------------------------------------------\n";
+                global $file;
+                echo $file.':'.$node->getLine().':error in hedehödö'."\n";
+
+                #echo "------------------------------------------\n";
+                #echo "ALERT: tainted input given to sink function(".$node->name.") on line ".$node->getLine()."!\n";
+                #echo "------------------------------------------\n";
             }
         } #elseif ($node instanceof Node\Expr\FuncCall && is user defind)
     }
 }
 
-class Screamer extends NodeVisitorAbstract {
+class Screamer extends NodeVisitorAbstract { #WHAT
     
     public function enterNode(Node $node) {
         include "/home/chao/sql-injection-scanner/SSS.php";
@@ -110,14 +145,14 @@ class Screamer extends NodeVisitorAbstract {
         global $CLEAR;
 
         if ($node instanceof Node\Expr\Variable && in_array('$'.$node->name, $sources)) {            
-            echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
+            #echo "found source: ".$node->name." at line ".$node->getLine().", potential vulnerability\n";
             if (!climb_up($node)){
-                echo "Input from ".$node->name." without sanitization at line ".$node->getLine()."\n";
+                #echo "Input from ".$node->name." without sanitization at line ".$node->getLine()."\n";
             }
         }elseif ($node instanceof Node\Expr\Variable && $DIRTY->contains($node->name)) {
-            echo "found a tainted variable on line ".$node->getLine()."\n";
+            #echo "found a tainted variable on line ".$node->getLine()."\n";
             if (!climb_up($node)){
-                echo "VLN: tainted variable persists and infects\n";
+                #echo "VLN: tainted variable persists and infects\n";
             }
         }
     }
@@ -131,21 +166,21 @@ class Librarian extends NodeVisitorAbstract { #Pretty critical BUG: same variabl
         global $METHODS;
 
         if ($node instanceof Node\Stmt\Class_){#methods reqrd
-            echo "\n################################################################################\n";
-            echo "found a class declaration on line ".$node->getLine()." with name ".$node->name."\n";
-            echo "################################################################################\n\n";
+            #echo "\n################################################################################\n";
+            #echo "found a class declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            #echo "################################################################################\n\n";
 
             $CLASSES[($node->name->name)] = $node;
         }elseif ($node instanceof Node\Stmt\Function_){
-            echo "\n################################################################################\n";
-            echo "found a function declaration on line ".$node->getLine()." with name ".$node->name."\n";
-            echo "################################################################################\n\n";
+            #echo "\n################################################################################\n";
+            #echo "found a function declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            #echo "################################################################################\n\n";
 
             $FUNCTIONS[$node->name->name] = $node;
         }elseif ($node instanceof Node\Stmt\ClassMethod){
-            echo "\n################################################################################\n";
-            echo "found a class method declaration on line ".$node->getLine()." with name ".$node->name."\n";
-            echo "################################################################################\n\n";
+            #echo "\n################################################################################\n";
+            #echo "found a class method declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            #echo "################################################################################\n\n";
 
             $METHODS[$node->name->name] = $node;
         }
@@ -200,7 +235,7 @@ function climb_up(Node $node){
     global $root;
 
     if ($flag == 1){
-        echo "short-circuiting climb...\n";
+        #echo "short-circuiting climb...\n";
         $flag = 0;
         return true;
     }
@@ -209,22 +244,21 @@ function climb_up(Node $node){
         $parent = $node->getAttribute('parent');
         $parent_type = $parent->getType();
         $node_type = $node->getType();
-        echo $node_type." node has parent node with type: '$parent_type'\n";
+        #echo $node_type." node has parent node with type: '$parent_type'\n";
 
         if($node_type == 'Expr_FuncCall'){
-            echo "caught function node. ";
+            #echo "caught function node. ";
             $flag = is_safe($node);
         }
         return climb_up($parent);
     
     }elseif ($node === $root ){
-        echo "reached root, stopping climb \n";
+        #echo "reached root, stopping climb \n";
         $tainted = true;
         return false;
     }else{
         $node_type = $node->getType();
-        echo "node ".$node_type." does not have a parent\n";
-        #TAINTED variable: add to global list
+        #echo "node ".$node_type." does not have a parent\n";
         $tainted = true;
         return false;
     }
@@ -233,16 +267,16 @@ function climb_up(Node $node){
 function is_safe(Node $func_node){
     include '/home/chao/sql-injection-scanner/SSS.php';
     
-    echo "checking if ".$func_node->getType()." is in sanitizers list...\n";
+    #echo "checking if ".$func_node->getType()." is in sanitizers list...\n";
     $fname = $func_node->name;
-    echo "NAME : ".$fname."\n";
+    #echo "NAME : ".$fname."\n";
     
     if (in_array($fname, $sanitizers)){
-        echo "function is in sanitizers list. input is (probably) sanitized.\n";
+        #echo "function is in sanitizers list. input is (probably) sanitized.\n";
         return 1;
     }else{
-        echo "function call is not sanitizer function\n";
-	echo "continue climb..\n";
+        #echo "function call is not sanitizer function\n";
+	    #echo "continue climb..\n";
         return 0;
     }
 }
@@ -305,22 +339,22 @@ else{
         $classfinder->traverse($ast);
         $traverser->traverse($ast);
 
-        $dumper = new NodeDumper;
-        foreach ($METHODS as $name => $tree){
-            echo "\ntree for ".$name." looks like this:\n";
-            echo $dumper->dump($tree)."\n";
-        }
-        foreach ($FUNCTIONS as $name => $tree){
-            echo "\ntree for ".$name." looks like this:\n";
-            echo $dumper->dump($tree)."\n";
-        }
-        foreach ($CLASSES as $name => $tree){
-            echo "\ntree for ".$name." looks like this:\n";
-            echo $dumper->dump($tree)."\n";
-        }
-        
-        echo "instances: ";
-        print_r($INSTANCES);
+#        $dumper = new NodeDumper;
+#        foreach ($METHODS as $name => $tree){
+#            echo "\ntree for ".$name." looks like this:\n";
+#            echo $dumper->dump($tree)."\n";
+#        }
+#        foreach ($FUNCTIONS as $name => $tree){
+#            echo "\ntree for ".$name." looks like this:\n";
+#            echo $dumper->dump($tree)."\n";
+#        }
+#        foreach ($CLASSES as $name => $tree){
+#            echo "\ntree for ".$name." looks like this:\n";
+#            echo $dumper->dump($tree)."\n";
+#        }
+#        
+#        echo "instances: ";
+#        print_r($INSTANCES);
 
     }
 }

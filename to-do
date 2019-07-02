@@ -2,6 +2,7 @@
 
 -check for tainted and clear variables in global scope - across blocks
     done.
+        -namespacerinizationer -across files
 
 -automate on multiple files (or even directories?)
     --done
@@ -12,8 +13,6 @@
     traverse them whenever needed
 
 -color and beautify output
-
--namespacerinizationer
 
 
 
