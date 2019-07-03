@@ -11,8 +11,9 @@ if( isset( $_POST[ 'Login' ] ) ) {
 	// Anti-CSRF
 	checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'login.php' );
 
-	$user = $_POST[ 'username' ];
-    $user = $user;
+	$user = $_POST[ 'username' ]."WHATEVER".mysqli_real_escape_string($_GET[ 'hedehödö' ]) ;
+
+    $denk = "hello ".$user;
 
 	$pass = $_POST[ 'password' ];
 	$pass = stripslashes( $pass );
