@@ -1,5 +1,3 @@
--go through all sinks&sources&sanitizers to see if all are covered
-
 -add validation through comments: regex match
 
 -check for tainted and clear variables in global scope - across blocks
@@ -7,5 +5,6 @@
 -automate on multiple files (or even directories?)
     --done
 	make --skip-hidden a parameter that is true by default
+    -no longer accepts single files tho
 
 -color and beautify output

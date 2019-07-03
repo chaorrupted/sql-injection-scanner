@@ -1,18 +1,18 @@
 <?php
 
 	$sanitizers = array(
-		'addslashes',
-		'dbx_escape_string',
-		'db2_escape_string',
-		'ingres_escape_string',
-		'maxdb_escape_string',
-		'maxdb_real_escape_string',
-		'mysql_escape_string',
-		'mysql_real_escape_string',
-		'mysqli_escape_string',
-		'mysqli_real_escape_string',
-		'pg_escape_string',
-		'pg_escape_bytea',
+		'addslashes', #f
+		'dbx_escape_string', #f
+		'db2_escape_string', #f
+		'ingres_escape_string', #f
+		'maxdb_escape_string', #f
+		'maxdb_real_escape_string', #f
+		'mysql_escape_string', #f
+		'mysql_real_escape_string', #f
+		'mysqli_escape_string', #f
+		'mysqli_real_escape_string', #f
+		'pg_escape_string', #f
+		'pg_escape_bytea', #f
 		'sqlite_escape_string',
 		'sqlite_udf_encode_binary',
 		'cubrid_real_escape_string',
@@ -44,7 +44,8 @@
 		'mysqli_stmt_execute',			
 		'mysqli_query',					
 		'mysqli_real_query',				
-		'mysqli_master_query',	
+		'mysqli_master_query',
+	        #mysql num rows	
 	);
 
 
@@ -57,13 +58,6 @@
 		'$_REQUEST',#array
 		'$_FILES',#array
 		'$_SERVER',#array
-		'$HTTP_GET_VARS',#array
-		'$HTTP_POST_VARS',#array
-		'$HTTP_COOKIE_VARS',#array
-		'$HTTP_REQUEST_VARS',#array
-		'$HTTP_POST_FILES',#array
-		'$HTTP_SERVER_VARS',#array
-		'$HTTP_RAW_POST_DATA',#array
 		#'$argc',
 		#'$argv',
 		#'pg_fetch_all',
