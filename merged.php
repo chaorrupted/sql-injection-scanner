@@ -47,10 +47,12 @@ class Snail extends NodeVisitorAbstract {
                 if ($DIRTY->contains($vname)){
                     $DIRTY->remove($vname);
                     echo "removed $vname from dirty\n";
+	            echo "\n";
                 }
                 if (!$CLEAR->contains($vname)){
                     $CLEAR->add($vname);
                     echo "added $vname to clear\n";
+	            echo "\n";
                 }
             }
         } elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
@@ -93,6 +95,18 @@ class Screamer extends NodeVisitorAbstract {
             if (!climb_up($node)){
                 echo "VLN: tainted variable persists and infects\n";
             }
+        }
+    }
+}
+
+class Librarian extends NodeVisitorAbstract {
+    
+    public function enterNode(Node $node){
+        echo "node type is : ".$node->getType()."\n";
+        if ($node instanceof Node\Stmt\Class_){
+            echo "################################################################################\n";
+            echo "found a class declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            echo "################################################################################\n";
         }
     }
 }
@@ -186,8 +200,8 @@ function is_safe(Node $func_node){
         return 1;
     }else{
         echo "function call is not sanitizer function\n";
-        echo "continue climb..\n";
-       return 0;
+	echo "continue climb..\n";
+        return 0;
     }
 }
 
@@ -196,6 +210,9 @@ $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
 
 $traverser = new NodeTraverser;
 $traverser->addVisitor(new Snail);
+
+$classfinder = new NodeTraverser;
+$classfinder->addVisitor(new Librarian);
 
 $pretraverser = new NodeTraverser;
 $pretraverser->addVisitor(new ParentConnector);
@@ -243,6 +260,7 @@ else{
         }
 
         $ast = $pretraverser->traverse($ast);
+        $classfinder->traverse($ast);
         $traverser->traverse($ast);
 
     }
