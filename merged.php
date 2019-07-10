@@ -14,7 +14,7 @@ $DIRTY = new \Ds\Set();
 $CLASSES = [];
 $FUNCTIONS = [];
 $INSTANCES = [];
-#$METHODS = [];
+$METHODS = [];
 
 class Snail extends NodeVisitorAbstract {
     
@@ -25,15 +25,26 @@ class Snail extends NodeVisitorAbstract {
         global $DIRTY;
         global $INSTANCES;
 
-#        if ($node instanceof Node\Expr\Assign && $node->expr instanceof Node\Expr\New_){
-#            echo "found assingment with call to 'new' on line :".$node->getLine()."\n";
-#            echo $node->var->name." is an instance of ".$node->expr->class."\n";
-#
-#            $INSTANCES[$node->var->name] = $node->expr->class->parts[0];
-#
-#        }else
-            
-        if ($node instanceof Node\Expr\Assign){
+
+
+
+        if ($node instanceof Node\Stmt\Class_){#methods reqrd
+            echo "\nskipping over class decleration\n";
+            echo "on line ".$node->getLine()." with name ".$node->name."\n";
+
+            return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+        }elseif ($node instanceof Node\Stmt\Function_){
+            echo "\nskipping over a function decleration\n";
+            echo "on line ".$node->getLine()." with name ".$node->name."\n";
+
+            return NodeTraverser::DONT_TRAVERSE_CHILDREN;
+        }elseif ($node instanceof Node\Expr\Assign && $node->expr instanceof Node\Expr\New_){
+            echo "found assingment with call to 'new' on line :".$node->getLine()."\n";
+            echo $node->var->name." is an instance of ".$node->expr->class."\n";
+
+            $INSTANCES[$node->var->name] = $node->expr->class->parts[0];
+
+        }elseif ($node instanceof Node\Expr\Assign){
 
 
             echo 'found an assignment at line '.$node->getLine()."\n";
@@ -68,6 +79,7 @@ class Snail extends NodeVisitorAbstract {
                     echo "added $vname to clear\n\n";
 	            echo "\n";
                 }
+            return NodeTraverser::DONT_TRAVERSE_CHILDREN;
             }
         }elseif ($node instanceof Node\Expr\FuncCall && in_array($node->name, $sinks) ) {
 
@@ -114,10 +126,11 @@ class Screamer extends NodeVisitorAbstract {
 }
 
 class Librarian extends NodeVisitorAbstract { #Pretty critical BUG: same variable name used in different scopes gets mixed up
-    
+                                              #fix by renaming 
     public function enterNode(Node $node){
         global $CLASSES;
         global $FUNCTIONS;
+        global $METHODS;
 
         if ($node instanceof Node\Stmt\Class_){#methods reqrd
             echo "\n################################################################################\n";
@@ -131,6 +144,12 @@ class Librarian extends NodeVisitorAbstract { #Pretty critical BUG: same variabl
             echo "################################################################################\n\n";
 
             $FUNCTIONS[$node->name->name] = $node;
+        }elseif ($node instanceof Node\Stmt\ClassMethod){
+            echo "\n################################################################################\n";
+            echo "found a class method declaration on line ".$node->getLine()." with name ".$node->name."\n";
+            echo "################################################################################\n\n";
+
+            $METHODS[$node->name->name] = $node;
         }
 
     }
@@ -289,12 +308,22 @@ else{
         $traverser->traverse($ast);
 
         $dumper = new NodeDumper;
+        foreach ($METHODS as $name => $tree){
+            echo "\ntree for ".$name." looks like this:\n";
+            echo $dumper->dump($tree)."\n";
+        }
         foreach ($FUNCTIONS as $name => $tree){
             echo "\ntree for ".$name." looks like this:\n";
             echo $dumper->dump($tree)."\n";
         }
-       
-       # print_r($FUNCTIONS);
+        foreach ($CLASSES as $name => $tree){
+            echo "\ntree for ".$name." looks like this:\n";
+            echo $dumper->dump($tree)."\n";
+        }
+        
+        echo "instances: ";
+        print_r($INSTANCES);
+
     }
 }
 

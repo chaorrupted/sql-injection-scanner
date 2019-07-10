@@ -8,15 +8,18 @@ require "/home/chao/vendor/autoload.php";
 $code = <<<'CODE'
 <?php
 
-function clean(string $i){
-    $i = $i."efasrgdthfyht";
-    return mysql_escape_string($i);
+class MyClass{
+    public function whatevr($in){
+        return mysql_real_escape_string($in);
+    }
+
 }
 
+$ahmey = new MyClass;
 
 $usr = $_GET['username'];
 
-$usr = clean($usr);
+$usr = $ahmey->whatevr($usr);
 
 
 

@@ -1,14 +1,31 @@
 <?php
 
-function clean(string $i){
-    $i = $i."qsadfrwed";
-    return mysql_escape_string($i);
+
+class MyClass{
+
+    private $dollar = 3;
+
+    public function whatevr($in){
+        return mysql_real_escape_string($in);
+    }
+
+}
+
+function clean(&$inp){
+    $inp = mysql_escape_string($inp);
 }
 
 
-$usr = $_GET['username'];
 
-$usr = clean($usr);
+$ahmey = new MyClass;
+
+$usr = $_GET['username'];
+$pass = $_GET['password'];
+
+$usr = $ahmey->whatevr($usr);
+
+clean($pass);
+
 #          X
 #
 # $usr = $usr."qsadfrwed";
