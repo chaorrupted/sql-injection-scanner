@@ -8,9 +8,8 @@
 	make --skip-hidden a parameter that is true by default
     -no longer accepts single files tho
 
--scan all funcs&methods -> then either
-    a. identify them
-    b. traverse them whenever needed
+-scan all funcs&methods -> then 
+    traverse them whenever needed
 
 -color and beautify output
 

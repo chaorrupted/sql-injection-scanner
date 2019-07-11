@@ -72,12 +72,10 @@ class Snail extends NodeVisitorAbstract {
                 if ($DIRTY->contains($vname)){
                     $DIRTY->remove($vname);
                     echo "removed $vname from dirty\n\n";
-	            echo "\n";
                 }
                 if (!$CLEAR->contains($vname)){
                     $CLEAR->add($vname);
                     echo "added $vname to clear\n\n";
-	            echo "\n";
                 }
             return NodeTraverser::DONT_TRAVERSE_CHILDREN;
             }
