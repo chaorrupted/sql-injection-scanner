@@ -127,7 +127,7 @@ class Snail extends NodeVisitorAbstract {
 
             if ($i_t) {
                 global $file;
-                echo $file.':'.$node->getLine().':error in hedehödö'."\n";
+                echo $file.':'.$node->getLine().':breach'."\n";
 
                 #echo "------------------------------------------\n";
                 #echo "ALERT: tainted input given to sink function(".$node->name.") on line ".$node->getLine()."!\n";

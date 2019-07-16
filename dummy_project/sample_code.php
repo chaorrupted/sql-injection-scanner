@@ -19,8 +19,12 @@ function clean(&$inp){
 
 $ahmey = new MyClass;
 
+mysqli_query($_GET['somethnfdghg']);
+
 $usr = $_GET['username'];
 $pass = $_GET['password'];
+
+mysqli_query($usr);
 
 $usr = $ahmey->whatevr($usr);
 
