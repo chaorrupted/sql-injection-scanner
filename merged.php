@@ -277,6 +277,12 @@ else{
         $ast = $pretraverser->traverse($ast);
         $classfinder->traverse($ast);
         $traverser->traverse($ast);
+
+        include '/home/chao/sql-injection-scanner/SSS.php';
+
+        var_dump($sinks);
+        $sinks[] = "user defined something";
+        var_dump($sinks);
     }
 }
 
