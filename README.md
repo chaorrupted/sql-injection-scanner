@@ -11,3 +11,7 @@ notice the trailing "/". target has to be a directory.
 https://www.php.net/manual/en/intro.ds.php 
 
 https://github.com/nikic/PHP-Parser
+
+## please note
+
+that this tool is far from complete, and false positive/negatives are quite common.
