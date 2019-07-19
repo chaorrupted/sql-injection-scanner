@@ -14,4 +14,4 @@ https://github.com/nikic/PHP-Parser
 
 ## please note
 
-that this tool is far from complete, and false positive/negatives are quite common.
+that this tool is far from complete and false positive/negatives are quite common.
