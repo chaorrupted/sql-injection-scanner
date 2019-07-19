@@ -8,5 +8,6 @@ notice the trailing "/". target has to be a directory.
 
 ## dependencies
 
-https://www.php.net/manual/en/intro.ds.php \n
+https://www.php.net/manual/en/intro.ds.php 
+
 https://github.com/nikic/PHP-Parser
