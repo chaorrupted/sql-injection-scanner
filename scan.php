@@ -19,7 +19,7 @@ $METHODS = [];
 class Snail extends NodeVisitorAbstract {
     
     public function enterNode(Node $node){
-        include "/home/chao/sql-injection-scanner/SSS.php";
+        include "./SSS.php";
         
         global $CLEAR;
         global $DIRTY;
@@ -34,7 +34,7 @@ class Snail extends NodeVisitorAbstract {
             $INSTANCES[$node->var->name] = $node->expr->class->parts[0];
 
         }elseif ($node instanceof Node\Expr\Assign && $node->var instanceof Node\Expr\ArrayDimFetch){
-            #is the whole array treated equally? probably broken
+            #needs fixing
             
             $vname = $node->var->var->name;
             if (is_tainted($node->expr)){
@@ -89,22 +89,14 @@ class Snail extends NodeVisitorAbstract {
                 global $file;
                 echo '  '.$file.':'.$node->getLine().':breach'."\n";
             }
-        } #elseif ($node instanceof Node\Expr\FuncCall) {
-           # echo "fnode f:\n";
-            
-           # $i = 0;
-           # foreach($node->args as $p){
-           #     echo "arg $i is ".$p->value->name."\n";
-           #     $i = $i + 1;
-           # }
-       # }
+        } 
     }
 }
 
 class Screamer extends NodeVisitorAbstract { 
     
     public function enterNode(Node $node) {
-        include "/home/chao/sql-injection-scanner/SSS.php";
+        include "./SSS.php";
         global $DIRTY;
         global $CLEAR;
 
@@ -210,7 +202,7 @@ function climb_up(Node $node){
 }
 
 function is_safe(Node $func_node){
-    include '/home/chao/sql-injection-scanner/SSS.php';
+    include './SSS.php';
     
     $fname = $func_node->name;
     
@@ -278,11 +270,6 @@ else{
         $classfinder->traverse($ast);
         $traverser->traverse($ast);
 
-        include '/home/chao/sql-injection-scanner/SSS.php';
-
-        var_dump($sinks);
-        $sinks[] = "user defined something";
-        var_dump($sinks);
     }
 }
 
